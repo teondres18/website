@@ -1,0 +1,300 @@
+/* ===== Colores ===== */
+:root {
+  --fondo: #050505;
+  --celeste: #5BC8E0;
+  --violeta: #5B6EE1;
+  --morado: #40407A;
+  --tarjeta: #16143a;
+  --texto: #f2f4ff;
+  --pixel: "Pixelify Sans", "Courier New", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: "Nunito", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+/* Estrellitas de fondo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .7;
+  background-image:
+    radial-gradient(2px 2px at 12% 18%, var(--celeste) 50%, transparent 51%),
+    radial-gradient(2px 2px at 82% 12%, var(--violeta) 50%, transparent 51%),
+    radial-gradient(2px 2px at 25% 45%, var(--violeta) 50%, transparent 51%),
+    radial-gradient(2px 2px at 90% 40%, var(--celeste) 50%, transparent 51%),
+    radial-gradient(2px 2px at 8% 70%, var(--celeste) 50%, transparent 51%),
+    radial-gradient(2px 2px at 93% 75%, var(--violeta) 50%, transparent 51%);
+}
+
+main {
+  position: relative;
+  flex: 1;
+  width: min(100% - 2rem, 920px);
+  margin-inline: auto;
+  padding-block: 2rem;
+  display: grid;
+  gap: 2.25rem;
+  text-align: center;
+}
+
+/* ===== Imágenes (cuadrados blancos hasta que pongas las tuyas) ===== */
+.slot {
+  display: block;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.slot-logo {
+  height: 90px;
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.slot-personaje {
+  width: clamp(88px, 14vw, 120px);
+  aspect-ratio: 1;
+  flex: none;
+}
+
+.slot-silueta {
+  width: 150px;
+  aspect-ratio: 1;
+}
+
+/* ===== Pikku + frase + cubo ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--pixel);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3.4vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: .03em;
+}
+
+#pikku { cursor: pointer; }
+#pikku.salto { animation: salto .45s ease-out; }
+
+@keyframes salto {
+  0%   { transform: translateY(0); }
+  40%  { transform: translateY(-16px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===== Redes ===== */
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.boton-red {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  color: var(--texto);
+  background: var(--tarjeta);
+  border: 3px solid var(--violeta);
+  box-shadow: 0 0 0 3px var(--fondo), 0 0 0 6px var(--morado);
+  border-radius: 6px;
+  transition: transform .15s, background .15s, color .15s, border-color .15s;
+}
+
+.boton-red svg { width: 32px; height: 32px; }
+
+.boton-red:hover,
+.boton-red:focus-visible {
+  transform: translateY(-4px);
+  background: var(--celeste);
+  border-color: var(--celeste);
+  color: #06121a;
+}
+
+/* ===== Próximamente ===== */
+.proximamente {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.75rem;
+  text-align: left;
+  background: var(--tarjeta);
+  border: 3px solid var(--violeta);
+  box-shadow: 0 0 0 3px var(--fondo), 0 0 0 6px var(--morado);
+  border-radius: 6px;
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: .1rem .8rem;
+  font-family: var(--pixel);
+  font-weight: 700;
+  color: #06121a;
+  background: var(--celeste);
+  border-radius: 4px;
+}
+
+.proximamente-texto p {
+  margin: .75rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  max-width: 32ch;
+}
+
+/* ===== Formulario ===== */
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .75rem;
+}
+
+.lista input {
+  flex: 1 1 260px;
+  max-width: 340px;
+  padding: .8rem 1rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--fondo);
+  border: 3px solid var(--morado);
+  border-radius: 6px;
+}
+
+.lista input::placeholder { color: #8d92c4; }
+
+.lista button {
+  padding: .8rem 1.25rem;
+  font: inherit;
+  font-weight: 700;
+  color: #06121a;
+  background: var(--celeste);
+  border: 3px solid var(--celeste);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform .15s, background .15s;
+}
+
+.lista button:hover { transform: translateY(-2px); background: #7fd9ee; }
+
+.nota { margin: .75rem 0 0; font-size: .95rem; }
+
+/* ===== Últimas publicaciones ===== */
+.titulo-linea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.25rem;
+  font-family: var(--pixel);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.titulo-linea::before,
+.titulo-linea::after {
+  content: "";
+  flex: 1;
+  height: 3px;
+  background: var(--morado);
+}
+
+.publicaciones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding: .6rem .6rem .8rem;
+  color: var(--texto);
+  text-decoration: none;
+  text-align: left;
+  background: var(--tarjeta);
+  border: 3px solid var(--morado);
+  border-radius: 6px;
+  transition: transform .15s, border-color .15s;
+}
+
+.post:hover,
+.post:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--celeste);
+}
+
+.post .slot {
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: .5rem;
+}
+
+.post-red {
+  font-family: var(--pixel);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.post-tipo { font-size: .85rem; color: #aab0e0; }
+
+/* ===== Pie ===== */
+footer {
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+  font-size: .95rem;
+  border-top: 3px solid var(--morado);
+}
+
+footer a { color: var(--texto); }
+
+/* ===== Utilidades ===== */
+.oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--celeste);
+  outline-offset: 3px;
+}
+
+/* ===== Móvil ===== */
+@media (max-width: 720px) {
+  .hero { flex-wrap: wrap; }
+  .hero h1 { order: 3; width: 100%; }
+  .publicaciones { grid-template-columns: repeat(2, 1fr); }
+  .proximamente { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

@@ -4,27 +4,118 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Teondres</title>
-  <link rel="icon" href="logo-cubo.png">
+  <meta name="description" content="Teondres: estamos creando algo especial.">
 
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: #000000;
-    }
-    body {
-      display: grid;
-      place-items: center;
-    }
-    img {
-      width: min(50vw, 320px);
-      height: auto;
-      image-rendering: pixelated;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
-
 <body>
-  <img src="logo-cubo.png" alt="Teondres">
+
+  <main>
+
+    <!-- ============ LOGO ============ -->
+    <!-- Imagen: img/logo.png -->
+    <header>
+      <img class="slot slot-logo" src="img/logo.png" alt="Teondres"
+           onerror="this.onerror=null;this.src='img/blanco.svg'">
+    </header>
+
+    <!-- ============ PIKKU + FRASE + CUBO ============ -->
+    <section class="hero">
+      <!-- Imagen: img/pikku.png -->
+      <img class="slot slot-personaje" id="pikku" src="img/pikku.png" alt="Pikku"
+           onerror="this.onerror=null;this.src='img/blanco.svg'">
+
+      <h1>Estamos creando algo especial</h1>
+
+      <!-- Imagen: img/cubo.png -->
+      <img class="slot slot-personaje" src="img/cubo.png" alt="El cubo"
+           onerror="this.onerror=null;this.src='img/blanco.svg'">
+    </section>
+
+    <!-- ============ REDES ============ -->
+    <nav class="redes" aria-label="Redes sociales">
+      <a class="boton-red" data-red="tiktok" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 3c.3 2.3 1.7 3.9 3.9 4.1v3.1a7.2 7.2 0 0 1-3.8-1.2v6.2a5.9 5.9 0 1 1-5.9-5.9c.3 0 .6 0 .9.1v3.2a2.8 2.8 0 1 0 1.9 2.6V3h3z"/></svg>
+      </a>
+      <a class="boton-red" data-red="youtube" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg>
+      </a>
+      <a class="boton-red" data-red="discord" aria-label="Discord">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M5 6c2-1.2 4-1.8 4-1.8l.4.8c1.2-.2 2-.2 3.2 0l.4-.8s2 .6 4 1.8c2 3 2.8 6.3 2.5 9.8-1.6 1.2-3.2 1.9-4.6 2.3l-.9-1.5c.5-.2 1-.4 1.4-.7l-.3-.3c-2.6 1.2-5.4 1.2-8 0l-.3.3c.4.3.9.5 1.4.7l-.9 1.5c-1.4-.4-3-1.1-4.6-2.3C2.2 12.3 3 9 5 6zM9 10.7a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm6 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/></svg>
+      </a>
+      <a class="boton-red" data-red="instagram" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg>
+      </a>
+    </nav>
+
+    <!-- ============ PRÓXIMAMENTE ============ -->
+    <!-- Imagen: img/silueta.png -->
+    <section class="proximamente">
+      <img class="slot slot-silueta" src="img/silueta.png" alt="Silueta misteriosa"
+           onerror="this.onerror=null;this.src='img/blanco.svg'">
+      <div class="proximamente-texto">
+        <span class="etiqueta">Próximamente</span>
+        <p>Un RPG por turnos de terror y humor negro, en desarrollo.</p>
+      </div>
+    </section>
+
+    <!-- ============ CORREO ============ -->
+    <section>
+      <form class="lista" id="form-correo" novalidate>
+        <label class="oculto" for="correo">Tu correo electrónico</label>
+        <input type="email" id="correo" name="correo" placeholder="Tu correo electrónico..." autocomplete="email" required>
+        <button type="submit">Avísame cuando lo anuncien</button>
+      </form>
+      <p class="nota" id="mensaje-form" aria-live="polite">Sin spam. Solo noticias importantes.</p>
+    </section>
+
+    <!-- ============ ÚLTIMAS PUBLICACIONES ============ -->
+    <!-- Imágenes: img/post-tiktok.png, img/post-youtube.png, img/post-discord.png, img/post-instagram.png -->
+    <section>
+      <h2 class="titulo-linea">Últimas publicaciones</h2>
+
+      <div class="publicaciones">
+
+        <a class="post" data-red="tiktok">
+          <img class="slot" src="img/post-tiktok.png" alt="Último video de TikTok"
+               onerror="this.onerror=null;this.src='img/blanco.svg'">
+          <span class="post-red">TikTok</span>
+          <span class="post-tipo">Último video</span>
+        </a>
+
+        <a class="post" data-red="youtube">
+          <img class="slot" src="img/post-youtube.png" alt="Último video de YouTube"
+               onerror="this.onerror=null;this.src='img/blanco.svg'">
+          <span class="post-red">YouTube</span>
+          <span class="post-tipo">Último video</span>
+        </a>
+
+        <a class="post" data-red="discord">
+          <img class="slot" src="img/post-discord.png" alt="Última publicación de Discord"
+               onerror="this.onerror=null;this.src='img/blanco.svg'">
+          <span class="post-red">Discord</span>
+          <span class="post-tipo">Último anuncio</span>
+        </a>
+
+        <a class="post" data-red="instagram">
+          <img class="slot" src="img/post-instagram.png" alt="Última publicación de Instagram"
+               onerror="this.onerror=null;this.src='img/blanco.svg'">
+          <span class="post-red">Instagram</span>
+          <span class="post-tipo">Última publicación</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © Teondres &nbsp;|&nbsp; <a data-correo></a>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
