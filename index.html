@@ -58,7 +58,7 @@
            onerror="this.onerror=null;this.src='img/blanco.svg'">
       <div class="proximamente-texto">
         <span class="etiqueta">Próximamente</span>
-        <p>Un RPG por turnos de terror y humor negro, en desarrollo.</p>
+        <p>Nuestro primer RPG por turnos en desarrollo.</p>
       </div>
     </section>
 
@@ -66,9 +66,22 @@
     <section>
       <form class="lista" id="form-correo" novalidate>
         <label class="oculto" for="correo">Tu correo electrónico</label>
-        <input type="email" id="correo" name="correo" placeholder="Tu correo electrónico..." autocomplete="email" required>
+        <input type="email" id="correo" name="fields[email]" placeholder="Tu correo electrónico..." autocomplete="email" required>
+
+        <!-- Campo trampa: las personas no lo ven, los robots sí lo llenan -->
+        <div class="oculto" aria-hidden="true">
+          <label for="sitio_web">No llenes este campo</label>
+          <input type="text" id="sitio_web" tabindex="-1" autocomplete="off">
+        </div>
+
+        <!-- Campos que pide MailerLite -->
+        <input type="hidden" name="ml-submit" value="1">
+        <input type="hidden" name="anticsrf" value="true">
+
         <button type="submit">Avísame cuando lo anuncien</button>
       </form>
+      <!-- Aquí se envía el formulario sin recargar la página -->
+      <iframe name="ml-destino" id="ml-destino" title="Envío del formulario" hidden></iframe>
       <p class="nota" id="mensaje-form" aria-live="polite">Sin spam. Solo noticias importantes.</p>
     </section>
 
