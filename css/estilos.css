@@ -221,8 +221,8 @@ h1 {
 
 .publicaciones {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 200px));
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  align-items: start;
   gap: 1rem;
 }
 
@@ -230,26 +230,39 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: .15rem;
+  min-width: 0;
   padding: .6rem .6rem .8rem;
-  color: var(--texto);
-  text-decoration: none;
   text-align: left;
   background: var(--tarjeta);
   border: 3px solid var(--morado);
   border-radius: 6px;
-  transition: transform .15s, border-color .15s;
+  transition: border-color .15s;
 }
 
-.post:hover,
-.post:focus-visible {
-  transform: translateY(-4px);
-  border-color: var(--celeste);
-}
+.post:hover { border-color: var(--celeste); }
 
-.post .slot {
+.post > .slot {
   width: 100%;
   aspect-ratio: 1;
   margin-bottom: .5rem;
+}
+
+.post .tiktok-embed { margin: 0 0 .5rem; }
+
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-bottom: .5rem;
+  background: var(--fondo);
+}
+
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 4px;
 }
 
 .post-red {
@@ -259,6 +272,16 @@ h1 {
 }
 
 .post-tipo { font-size: .85rem; color: #aab0e0; }
+
+.post-enlace {
+  margin-top: .4rem;
+  font-weight: 700;
+  color: var(--celeste);
+  text-decoration: none;
+}
+
+.post-enlace:hover,
+.post-enlace:focus-visible { text-decoration: underline; }
 
 /* ===== Pie ===== */
 footer {
@@ -294,7 +317,6 @@ input:focus-visible {
 @media (max-width: 720px) {
   .hero { flex-wrap: wrap; }
   .hero h1 { order: 3; width: 100%; }
-  .publicaciones { grid-template-columns: repeat(2, 1fr); }
   .proximamente { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 }
 

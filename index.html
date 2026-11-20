@@ -86,39 +86,55 @@
     </section>
 
     <!-- ============ ÚLTIMAS PUBLICACIONES ============ -->
-    <!-- Imágenes: img/post-tiktok.png, img/post-youtube.png, img/post-discord.png, img/post-instagram.png -->
+    <!-- TikTok y YouTube se actualizan solos. Discord e Instagram usan imágenes:
+         img/post-discord.png e img/post-instagram.png -->
     <section>
       <h2 class="titulo-linea">Últimas publicaciones</h2>
 
       <div class="publicaciones">
 
-        <a class="post" data-red="tiktok">
-          <img class="slot" src="img/post-tiktok.png" alt="Último video de TikTok"
-               onerror="this.onerror=null;this.src='img/blanco.svg'">
+        <!-- TikTok: tarjeta oficial de tu perfil con tus videos más recientes -->
+        <div class="post" data-card="tiktok">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@teondres"
+                      data-unique-id="teondres" data-embed-type="creator"
+                      style="max-width: 720px; min-width: 288px;">
+            <section><a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@teondres?refer=creator_embed">@teondres</a></section>
+          </blockquote>
           <span class="post-red">TikTok</span>
-          <span class="post-tipo">Último video</span>
-        </a>
+          <span class="post-tipo">Últimos videos</span>
+          <a class="post-enlace" data-red="tiktok">Ver en TikTok</a>
+        </div>
 
-        <a class="post" data-red="youtube">
-          <img class="slot" src="img/post-youtube.png" alt="Último video de YouTube"
-               onerror="this.onerror=null;this.src='img/blanco.svg'">
+        <!-- YouTube: lista de subidas del canal (UC... cambia a UU...), muestra el último video -->
+        <div class="post" data-card="youtube">
+          <div class="video">
+            <iframe src="https://www.youtube-nocookie.com/embed?listType=playlist&amp;list=UUg8D8vsJX5izERwKosD30gg"
+                    title="Último video de Teondres en YouTube" loading="lazy"
+                    allow="encrypted-media; picture-in-picture; fullscreen"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
           <span class="post-red">YouTube</span>
           <span class="post-tipo">Último video</span>
-        </a>
+          <a class="post-enlace" data-red="youtube">Ver en YouTube</a>
+        </div>
 
-        <a class="post" data-red="discord">
-          <img class="slot" src="img/post-discord.png" alt="Última publicación de Discord"
+        <!-- Discord: imagen + cuántas personas hay conectadas (si pones el ID del servidor en main.js) -->
+        <div class="post" data-card="discord">
+          <img class="slot" src="img/post-discord.png" alt="Comunidad de Discord"
                onerror="this.onerror=null;this.src='img/blanco.svg'">
           <span class="post-red">Discord</span>
-          <span class="post-tipo">Último anuncio</span>
-        </a>
+          <span class="post-tipo" id="discord-estado">Nuestra comunidad</span>
+          <a class="post-enlace" data-red="discord">Unirme al servidor</a>
+        </div>
 
-        <a class="post" data-red="instagram">
+        <!-- Instagram: se oculta solo mientras no haya enlace en main.js -->
+        <div class="post" data-card="instagram">
           <img class="slot" src="img/post-instagram.png" alt="Última publicación de Instagram"
                onerror="this.onerror=null;this.src='img/blanco.svg'">
           <span class="post-red">Instagram</span>
           <span class="post-tipo">Última publicación</span>
-        </a>
+          <a class="post-enlace" data-red="instagram">Ver en Instagram</a>
+        </div>
 
       </div>
     </section>
@@ -130,5 +146,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>

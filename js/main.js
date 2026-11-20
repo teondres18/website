@@ -6,9 +6,13 @@ const CONFIG = {
     tiktok:    "https://www.tiktok.com/@teondres",
     youtube:   "https://www.youtube.com/@Teondres",
     discord:   "https://discord.gg/6epwXaZes",
-    instagram: "https://www.instagram.com/teondres/"   // vacío = el botón y la publicación se ocultan solos
+    instagram: "https://www.instagram.com/teondres/"
   },
   correo: "teondres18@gmail.com",
+
+  // ID del servidor de Discord (Ajustes del servidor -> Widget). Sirve para mostrar
+  // cuántas personas hay conectadas. Vacío = no se muestra el número.
+  discordServidorId: "",
 
   // Dirección de MailerLite a la que se envían los correos (formulario "Lista de espera Teondres").
   // Vacío = el formulario aún no guarda nada.
@@ -16,16 +20,35 @@ const CONFIG = {
 };
 
 /* ===== Enlaces de redes ===== */
-document.querySelectorAll("[data-red]").forEach((enlace) => {
-  const url = CONFIG.redes[enlace.dataset.red];
-  if (!url) {            // si no hay enlace, se oculta
-    enlace.hidden = true;
-    return;
-  }
-  enlace.href = url;
-  enlace.target = "_blank";
-  enlace.rel = "noopener noreferrer";
+// Si una red no tiene enlace, se ocultan su botón y su tarjeta
+Object.keys(CONFIG.redes).forEach((red) => {
+  const url = CONFIG.redes[red];
+  document.querySelectorAll(`[data-red="${red}"], [data-card="${red}"]`).forEach((el) => {
+    if (!url) {
+      el.hidden = true;
+      return;
+    }
+    if (el.dataset.red) {
+      el.href = url;
+      el.target = "_blank";
+      el.rel = "noopener noreferrer";
+    }
+  });
 });
+
+/* ===== Discord: personas conectadas ===== */
+const estadoDiscord = document.getElementById("discord-estado");
+
+if (CONFIG.discordServidorId && estadoDiscord) {
+  fetch("https://discord.com/api/guilds/" + CONFIG.discordServidorId + "/widget.json")
+    .then((respuesta) => (respuesta.ok ? respuesta.json() : Promise.reject()))
+    .then((datos) => {
+      if (typeof datos.presence_count === "number") {
+        estadoDiscord.textContent = datos.presence_count + " conectados ahora";
+      }
+    })
+    .catch(() => { /* si falla, se queda el texto de siempre */ });
+}
 
 /* ===== Correo del pie de página ===== */
 document.querySelectorAll("[data-correo]").forEach((enlace) => {
