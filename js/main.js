@@ -6,7 +6,7 @@ const CONFIG = {
     tiktok:    "https://www.tiktok.com/@teondres",
     youtube:   "https://www.youtube.com/@Teondres",
     discord:   "https://discord.gg/6epwXaZes",
-    instagram: ""   // vacío = el botón y la publicación se ocultan solos
+    instagram: "https://www.instagram.com/teondres/"   // vacío = el botón y la publicación se ocultan solos
   },
   correo: "teondres18@gmail.com",
 
