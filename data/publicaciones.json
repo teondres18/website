@@ -1,0 +1,20 @@
+{
+  "tiktok": {
+    "titulo": "Último video",
+    "imagen": "",
+    "enlace": ""
+  },
+  "youtube": {
+    "titulo": "Último video",
+    "imagen": "",
+    "enlace": ""
+  },
+  "discord": {
+    "titulo": "Únete a la comunidad",
+    "imagen": "img/post-discord.png"
+  },
+  "instagram": {
+    "titulo": "Síguenos en Instagram",
+    "imagen": "img/post-instagram.png"
+  }
+}

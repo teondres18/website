@@ -36,15 +36,30 @@ Object.keys(CONFIG.redes).forEach((red) => {
   });
 });
 
-/* ===== Discord: personas conectadas ===== */
-const estadoDiscord = document.getElementById("discord-estado");
+/* ===== Últimas publicaciones (data/publicaciones.json) ===== */
+fetch("data/publicaciones.json", { cache: "no-cache" })
+  .then((respuesta) => (respuesta.ok ? respuesta.json() : Promise.reject()))
+  .then((datos) => {
+    Object.keys(datos).forEach((red) => {
+      const tarjeta = document.querySelector(`[data-card="${red}"]`);
+      if (!tarjeta || tarjeta.hidden) return;
+      const info = datos[red];
+      if (info.titulo) tarjeta.querySelector(".post-titulo").textContent = info.titulo;
+      if (info.imagen) tarjeta.querySelector(".portada").src = info.imagen;
+      if (info.enlace) tarjeta.href = info.enlace;
+    });
+  })
+  .catch(() => { /* si falla, se quedan los textos e imágenes de siempre */ });
 
-if (CONFIG.discordServidorId && estadoDiscord) {
+/* ===== Discord: personas conectadas ===== */
+const tituloDiscord = document.querySelector('[data-card="discord"] .post-titulo');
+
+if (CONFIG.discordServidorId && tituloDiscord) {
   fetch("https://discord.com/api/guilds/" + CONFIG.discordServidorId + "/widget.json")
     .then((respuesta) => (respuesta.ok ? respuesta.json() : Promise.reject()))
     .then((datos) => {
       if (typeof datos.presence_count === "number") {
-        estadoDiscord.textContent = datos.presence_count + " conectados ahora";
+        tituloDiscord.textContent = datos.presence_count + " conectados ahora";
       }
     })
     .catch(() => { /* si falla, se queda el texto de siempre */ });
