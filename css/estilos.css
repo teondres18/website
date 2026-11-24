@@ -59,10 +59,12 @@ main {
 }
 
 .slot-logo {
-  height: 90px;
-  width: auto;
+  --logo: clamp(230px, 46vw, 320px);
+  width: var(--logo);
+  height: auto;
   max-width: 100%;
-  margin-inline: auto;
+  margin: calc(var(--logo) * -.12) auto calc(var(--logo) * -.08);
+  image-rendering: auto;
 }
 
 .slot-personaje {
