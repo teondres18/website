@@ -63,7 +63,7 @@ main {
   width: var(--logo);
   height: auto;
   max-width: 100%;
-  margin: calc(var(--logo) * -.12) auto calc(var(--logo) * -.08);
+  margin: calc(var(--logo) * -.3) auto calc(var(--logo) * -.3);
   image-rendering: auto;
 }
 
@@ -71,6 +71,7 @@ main {
   width: clamp(88px, 14vw, 120px);
   aspect-ratio: 1;
   flex: none;
+  image-rendering: auto;
 }
 
 .slot-silueta {
