@@ -5,7 +5,7 @@ const CONFIG = {
   redes: {
     tiktok:    "https://www.tiktok.com/@teondres",
     youtube:   "https://www.youtube.com/@Teondres",
-    discord:   "https://discord.gg/6epwXaZes",
+    discord:   "https://discord.gg/TEJxDvQy2Q",
     instagram: "https://www.instagram.com/teondres/"
   },
   correo: "teondres18@gmail.com",
